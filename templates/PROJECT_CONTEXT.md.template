@@ -1,0 +1,235 @@
+# Template: PROJECT_CONTEXT.md
+
+Copy this template into your project root and customize it.
+
+```markdown
+# PROJECT_CONTEXT: [Your Project Name]
+
+## Overview
+
+[1-2 sentence description of what this project does and why it exists]
+
+## Current Status
+
+- **Version:** X.Y.Z
+- **Release Status:** [Alpha/Beta/Production]
+- **Last Updated:** YYYY-MM-DD
+- **Primary Maintainer:** [Name/Handle]
+
+## Quick Context for New Instances
+
+When you open this project, you need to know:
+
+1. [Most important fact about this project]
+2. [Second most important technical context]
+3. [What should I do first?]
+
+## Architecture Overview
+
+### Tech Stack
+
+- **Language:** [e.g., JavaScript, Python, TypeScript]
+- **Framework:** [e.g., React, FastAPI, Django]
+- **Database:** [e.g., PostgreSQL, MongoDB, Firebase]
+- **Deployment:** [e.g., AWS Lambda, Heroku, Vercel]
+
+### Project Structure
+
+```
+project-root/
+├── src/
+│   ├── core/        [Core business logic]
+│   ├── api/         [API routes/endpoints]
+│   ├── ui/          [User interface components]
+│   └── utils/       [Utility functions]
+├── tests/           [Test files]
+├── docs/            [Documentation]
+└── config/          [Configuration files]
+```
+
+### Architecture Decisions
+
+**Decision 1: [What]**
+- Why: [Rationale]
+- Trade-offs: [What we gave up]
+- Alternative considered: [Other option]
+
+**Decision 2: [What]**
+- Why: [Rationale]
+- Trade-offs: [What we gave up]
+- Alternative considered: [Other option]
+
+### Key Dependencies
+
+| Package | Version | Why | Alternative |
+|---------|---------|-----|-------------|
+| [Package A] | X.Y.Z | [Reason] | [Other option] |
+| [Package B] | X.Y.Z | [Reason] | [Other option] |
+
+## Development Workflow
+
+### Getting Started
+
+```bash
+# Clone and setup
+git clone [repo-url]
+cd [project-name]
+
+# Install dependencies
+npm install    # or pip install -r requirements.txt
+
+# Set up environment
+cp .env.example .env
+# Edit .env with your values
+
+# Run locally
+npm start      # or npm run dev
+```
+
+### Running Tests
+
+```bash
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm test:watch
+
+# Run tests with coverage
+npm test:coverage
+```
+
+### Building for Production
+
+```bash
+npm run build
+```
+
+### Deploying
+
+[Steps for deploying to production]
+
+## Current Blockers
+
+- [ ] [Blocker 1] - Blocked by external dependency X
+- [ ] [Blocker 2] - Blocked by internal issue Y
+- [ ] [Blocker 3] - Needs human decision on Z
+
+## Key Files (By Importance)
+
+1. **[File Path]** - [What it does and why it matters]
+2. **[File Path]** - [What it does and why it matters]
+3. **[File Path]** - [What it does and why it matters]
+
+## Known Limitations
+
+1. [Limitation 1] - Why: [Context]
+2. [Limitation 2] - Why: [Context]
+3. [Limitation 3] - Why: [Context]
+
+## Decision History
+
+Why certain choices were made:
+
+### Why [Technology A] Instead of [Technology B]?
+
+[Context that explains the choice, including:
+- What we tried
+- Why we switched
+- What we learned
+- Would we make this choice again?]
+
+### Why [Architecture Pattern X] Instead of [Pattern Y]?
+
+[Context and rationale]
+
+## Related Projects
+
+This project depends on or relates to:
+
+- **[Project A]** - Description of relationship
+- **[Project B]** - Description of relationship
+
+See their PROJECT_CONTEXT.md files for full context.
+
+## Common Tasks
+
+### Adding a New Feature
+
+1. [Steps specific to this project]
+2. [Standard workflow]
+3. [Things to watch out for]
+
+### Fixing a Bug
+
+1. [Bug investigation process]
+2. [Testing before/after]
+3. [Deployment steps]
+
+### Performance Optimization
+
+[Performance profile, bottlenecks, optimization history]
+
+## Configuration
+
+Key configuration files and what they do:
+
+- **config.json** - [What it configures]
+- **.env.example** - [Environment variables needed]
+- **package.json** - [Dependencies and scripts]
+
+## Testing Strategy
+
+- **Unit tests:** [What we test at unit level]
+- **Integration tests:** [What we test at integration level]
+- **E2E tests:** [What we test end-to-end]
+- **Coverage target:** X%
+- **Current coverage:** X%
+
+## Performance Characteristics
+
+- **API response time:** [e.g., <100ms p95]
+- **Database query time:** [e.g., <50ms average]
+- **Bundle size:** [e.g., 150KB gzipped]
+- **Memory usage:** [e.g., <200MB in production]
+
+## Security Considerations
+
+- [Security consideration 1]
+- [Security consideration 2]
+- [Secrets management strategy]
+- [Authentication/Authorization approach]
+
+## Monitoring and Observability
+
+- **Logging:** [Log aggregation service/location]
+- **Metrics:** [Metrics service/dashboards]
+- **Error tracking:** [Error tracking service]
+- **Uptime monitoring:** [Monitoring service]
+
+## License
+
+[License type and link]
+
+## Contact
+
+- **Questions:** [How to ask]
+- **Issues:** [How to report]
+- **Contributions:** [How to contribute]
+```
+
+## How to Use This Template
+
+1. Copy the entire code block above
+2. Create a file called `PROJECT_CONTEXT.md` in your project root
+3. Paste and customize each section
+4. Commit to git
+5. Update whenever architecture changes or new blockers are discovered
+
+## Tips
+
+- **Be specific** - Generic descriptions don't help
+- **Document the why** - Future instances need to understand reasoning
+- **Keep it current** - Outdated context is worse than no context
+- **Add examples** - Code snippets help more than abstract descriptions
+- **Link related projects** - Help instances understand the ecosystem
