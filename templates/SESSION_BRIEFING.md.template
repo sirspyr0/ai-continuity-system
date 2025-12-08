@@ -1,0 +1,114 @@
+# Template: SESSION_BRIEFING.md
+
+Copy this template and customize it for each session.
+
+```markdown
+# Session Briefing: [Project Name]
+
+## What You're Walking Into
+
+[1-2 sentence summary of current project status]
+
+Last completed: [What was just finished in previous session]
+Current blocker: [What's preventing progress]
+Next goal: [What should be done next]
+
+## Immediate Action Items
+
+In order of importance:
+
+1. **[First task]** - [Why it's first] - Est. time: X hours
+2. **[Second task]** - [Why it's second] - Est. time: Y hours  
+3. **[Third task]** - [Why it's third] - Est. time: Z hours
+
+## How to Get Productive in 15 Minutes
+
+1. **Read this briefing** (5 min) - You're doing this now
+2. **Check SESSION_LOG.md recent entry** (5 min) - Understand what was just done
+3. **Review key code** (5 min) - Look at files listed below
+4. **Start coding!**
+
+## Quick File Guide
+
+Most important files right now:
+
+- **[File A]** - Currently being worked on
+- **[File B]** - Needs changes next
+- **[File C]** - Reference for patterns
+
+## Test Status
+
+```
+$ npm test
+
+Tests: X passed, Y failed
+Coverage: Z%
+
+Failing tests:
+- [Test 1] - Why it's failing
+- [Test 2] - Why it's failing
+```
+
+## Current Metrics
+
+- **Build time:** X seconds
+- **Deploy time:** Y seconds
+- **Performance:** Z ms (p95)
+- **Bundle size:** A KB
+
+## Environment Setup
+
+To run locally:
+
+```bash
+npm install    # If first time
+npm start      # Start dev server
+npm test       # Run tests
+```
+
+Key environment variables needed: [List any]
+
+## For More Information
+
+- **SESSION_LOG.md** - Detailed work history from previous instances
+- **PROJECT_CONTEXT.md** - Architecture, decisions, why we're building this
+- **README.md** - General project information
+
+## Questions?
+
+If something is unclear:
+1. Check SESSION_LOG.md recent entries
+2. Check PROJECT_CONTEXT.md for architectural context
+3. Look for TODO comments in code
+4. Run tests to see what's expected
+```
+
+## How to Use This Template
+
+1. Copy the code block above
+2. Create `SESSION_BRIEFING.md` in your project root
+3. Fill in the bracketed sections with real information
+4. Update after each work session
+5. Commit to git along with code changes
+
+## Tips for Effective Briefings
+
+- **Keep it to 1-2 pages** - Should take 15 minutes to read
+- **Lead with the current blocker** - Most important info first
+- **Be specific** - "Fix bug" is vague, "Fix pagination offset bug in API response" is clear
+- **Include metrics** - Help next instance understand current state
+- **Link to detailed info** - Point to SESSION_LOG.md for history
+- **Update every session** - Stale briefings are worse than none
+
+## When to Update SESSION_BRIEFING.md
+
+**Always:**
+- After implementing a feature
+- After finding a new blocker
+- After fixing critical bugs
+- Before committing code
+
+**Check:**
+- Does it still describe the current status?
+- Are the next steps still correct?
+- Is the test status up to date?

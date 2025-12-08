@@ -1,0 +1,289 @@
+# Template: SESSION_LOG.md
+
+Copy this template and append to it after each session.
+
+```markdown
+# Session Log: [Project Name]
+
+## How to Use This File
+
+Append new sessions at the TOP of the file (most recent first).
+Each entry documents what one AI instance accomplished.
+
+---
+
+## Active Sessions
+
+### Current Session (Instance #N - YYYY-MM-DD)
+
+**Starting Context:**
+- What was the project state when I started?
+- What was the main blocker?
+- What was I trying to accomplish?
+
+**Work Accomplished:**
+
+- **[Accomplishment 1]**
+  - What: [What was done]
+  - Why: [Why was it done]
+  - How: [How it was implemented]
+  - Proof: [How to verify it works]
+
+- **[Accomplishment 2]**
+  - [Details...]
+
+- **[Accomplishment 3]**
+  - [Details...]
+
+**Code Changes Summary:**
+
+```
+[File 1]: [What changed and why]
+[File 2]: [What changed and why]
+[File 3]: [What changed and why]
+```
+
+**Commits Made:**
+
+1. **[Commit message]** - [What this commit does]
+2. **[Commit message]** - [What this commit does]
+
+**Blockers Encountered:**
+
+- **[Blocker 1]** - [Description of issue]
+  - Attempted solution: [What we tried]
+  - Why it didn't work: [Why attempt failed]
+  - Resolution: [How it was resolved or why it still blocks]
+
+- **[Blocker 2]** - [Description]
+  - Attempted solution: [What we tried]
+  - Resolution: [How it was resolved]
+
+**Decisions Made:**
+
+- **[Decision 1]:** Chose [Option A] over [Option B]
+  - Reasoning: [Why Option A was better]
+  - Trade-offs: [What we gave up]
+  - Reference: [Link to PROJECT_CONTEXT.md if related]
+
+- **[Decision 2]:** [Another decision]
+  - Reasoning: [Why]
+
+**Tests Added/Updated:**
+
+- [Test 1]: [What it tests]
+- [Test 2]: [What it tests]
+- Test coverage: [X% → Y%]
+
+**Performance Changes:**
+
+- [Metric 1]: [Old] → [New]
+- [Metric 2]: [Old] → [New]
+
+**For Next Instance:**
+
+**Immediate Next Steps (In Priority Order):**
+1. [Specific task, not vague]
+2. [Specific task]
+3. [Specific task]
+
+**Quick Status Summary:**
+[1-2 sentences about current state. Can the next instance pick up immediately?]
+
+**Files Changed Recently:**
+- [File 1] - [What changed]
+- [File 2] - [What changed]
+
+**Updated Documentation:**
+- ✅ SESSION_BRIEFING.md updated? [Yes/No/Partial]
+- ✅ PROJECT_CONTEXT.md needs update? [Yes/No - if yes, what?]
+- ✅ Code comments clear? [Yes/No]
+
+**Test Status:**
+- Total: [X] passing
+- Failing: [Y]
+- Coverage: [Z%]
+- Critical tests passing? [Yes/No]
+
+**Known Issues:**
+- [Issue 1]: [Description and workaround]
+- [Issue 2]: [Description]
+
+**Time Spent:**
+- Development: X hours
+- Debugging: Y hours
+- Testing: Z hours
+- Documentation: W hours
+
+---
+
+## Previous Sessions
+
+[Earlier session entries in reverse chronological order]
+
+### Previous Session (Instance #N-1 - YYYY-MM-DD)
+
+[Same format as above...]
+```
+
+## How to Use This Template
+
+1. Copy the entire code block above
+2. Create `SESSION_LOG.md` in your project root
+3. Paste the template
+4. Fill in first session (often "initialization")
+5. Commit to git
+6. After each work session, add new entry at the TOP
+7. Keep old entries for reference
+
+## What to Include
+
+**MUST HAVE:**
+- What you accomplished (specific, not vague)
+- Code changes (which files and why)
+- Blockers encountered (helps next instance)
+- Next steps (specific, not "continue development")
+
+**SHOULD HAVE:**
+- Why you made certain decisions
+- What you tried that didn't work
+- Test status
+- Performance metrics
+
+**NICE TO HAVE:**
+- Time breakdown
+- Links to commit SHAs
+- Code snippets of key changes
+- Lessons learned
+
+## Tips for Effective Session Logs
+
+1. **Be specific**
+   - ❌ "Fixed API"
+   - ✅ "Fixed pagination offset bug in GET /api/items endpoint - was using query.offset instead of parseInt(query.offset), causing off-by-one errors"
+
+2. **Explain the why**
+   - ❌ "Added error handling"
+   - ✅ "Added try-catch around database query because previous instance found that missing records were causing silent failures"
+
+3. **Help next instance understand what you tried**
+   - ❌ "Couldn't implement feature X"
+   - ✅ "Couldn't implement real-time sync because WebSocket library has licensing issues. Attempted to use Socket.io but it has same issue. Will try simple polling approach next."
+
+4. **Document failed attempts**
+   - Failed attempts help next instance avoid wasted time
+   - Include: what you tried, why you thought it would work, why it didn't
+
+5. **Include metrics**
+   - Test pass rate
+   - Coverage percentage
+   - Performance metrics
+   - Build time
+
+## Archiving Old Sessions
+
+When SESSION_LOG.md gets too long (>2000 lines):
+
+1. Create `docs/SESSION_LOG_ARCHIVE.md`
+2. Move sessions older than 1 month
+3. Keep last 5-10 sessions in SESSION_LOG.md
+4. Link to archive from SESSION_LOG.md
+
+## Example Entry
+
+Here's what a good entry looks like:
+
+```markdown
+### Current Session (Instance #7 - 2025-12-10)
+
+**Starting Context:**
+- Project had 3 failing API tests
+- Previous instance documented that pagination wasn't working
+- No urgent blockers, ready to work
+
+**Work Accomplished:**
+
+- **Implemented pagination in API**
+  - What: Added offset/limit support to GET /api/items endpoint
+  - Why: Tests required pagination, existing endpoints had no support
+  - How: Added validation middleware, implemented in database query
+  - Proof: All 3 previously-failing tests now pass
+
+- **Added comprehensive API tests**
+  - What: Created test suite covering pagination edge cases
+  - Why: Need to prevent regression in future
+  - How: Used Jest with supertest for HTTP testing
+  - Proof: 12 new tests, all passing
+
+**Code Changes Summary:**
+
+```
+src/api/routes.js: Added pagination middleware and validation
+test/api.test.js: Added 12 new pagination tests
+README.md: Documented pagination query parameters
+```
+
+**Blockers Encountered:**
+
+- **TypeScript compilation error in test file**
+  - Attempted: Added type definitions manually
+  - Why it didn't work: Definitions weren't matching actual API
+  - Resolution: Read supertest docs and found official types package, installed it
+  - Result: Blockage cleared, tests now properly typed
+
+**Decisions Made:**
+
+- **Chose offset/limit pagination over cursor-based**
+  - Reasoning: Database is small (<10k records), offset/limit is simpler
+  - Trade-offs: Won't scale to billions of records without refactor
+  - Reference: Previously decided in PROJECT_CONTEXT.md that we prioritize simple over scalable
+
+**For Next Instance:**
+
+**Immediate Next Steps:**
+1. Add response header documentation for pagination (X-Total-Count)
+2. Implement rate limiting on API
+3. Add integration test for client library pagination
+
+**Quick Status:** Pagination fully working, 47/47 tests passing. API is solid. 
+Ready for client library development.
+
+**Updated Documentation:**
+- ✅ SESSION_BRIEFING.md updated to reflect pagination completion
+- ✅ PROJECT_CONTEXT.md updated with pagination decision notes
+- ✅ Code well-commented
+
+**Test Status:** 47 passed, 0 failed, 82% coverage
+```
+
+This example shows:
+- Clear context about what was found
+- Specific accomplishments with proof
+- Failed attempts documented
+- Clear next steps
+- Test status
+- Documentation updates
+
+This is what helps next instances be immediately productive!
+```
+
+## Common Mistakes to Avoid
+
+1. **Too vague** - "Updated code" instead of "Fixed race condition in auth middleware"
+2. **No context** - Don't assume next instance will remember what you were doing
+3. **Forgot blockers** - Document what blocked you, so next instance can work around it
+4. **No next steps** - End with "Ready for next instance" not "See code"
+5. **Outdated** - Always update before committing
+6. **Missing test status** - Next instance needs to know which tests pass/fail
+
+## Review Checklist
+
+Before committing, verify:
+
+- [ ] SESSION_LOG.md entry describes what I accomplished (specific)
+- [ ] SESSION_LOG.md includes blockers I encountered
+- [ ] SESSION_LOG.md explains decisions made
+- [ ] SESSION_LOG.md has clear next steps
+- [ ] Test status is current
+- [ ] Code changes are documented
+- [ ] Next instance can pick up immediately without re-reading code
