@@ -1,0 +1,22 @@
+# Core dependencies for Mistral 7B fine-tuning with QLoRA
+torch>=2.0.0
+transformers>=4.36.0
+peft>=0.7.0
+accelerate>=0.25.0
+bitsandbytes>=0.41.0
+datasets>=2.15.0
+trl>=0.7.0
+scipy>=1.11.0
+
+# Data processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Utilities
+tqdm>=4.66.0
+wandb>=0.16.0  # For experiment tracking (optional)
+tensorboard>=2.15.0
+
+# Inference engines
+llama-cpp-python>=0.2.0  # For llama.cpp integration
+onnxruntime>=1.16.0  # For ONNX runtime

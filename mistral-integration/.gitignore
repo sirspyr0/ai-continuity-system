@@ -1,0 +1,81 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Models (large files)
+models/
+*.bin
+*.safetensors
+*.gguf
+*.onnx
+*.tflite
+*.pt
+*.pth
+
+# Training outputs
+checkpoints/
+runs/
+wandb/
+*.log
+
+# Conversation history
+conversation_history.json
+*.jsonl
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (for mobile)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Mobile
+android/build/
+ios/build/
+.expo/
+.expo-shared/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# API keys and secrets
+.env
+.env.local
+secrets.json
+
+# Backups
+*.tar.gz
+*.zip
+backups/

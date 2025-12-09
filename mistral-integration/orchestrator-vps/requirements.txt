@@ -1,0 +1,13 @@
+# VPS-specific requirements (lighter than full requirements)
+torch>=2.0.0
+transformers>=4.36.0
+accelerate>=0.25.0
+bitsandbytes>=0.41.0
+
+# API server
+flask>=3.0.0
+flask-cors>=4.0.0
+gunicorn>=21.2.0
+
+# Utilities
+tqdm>=4.66.0
