@@ -1,0 +1,194 @@
+#!/usr/bin/env python3
+"""
+Generate training dataset for Mistral 7B based on continuity principles.
+
+This script creates training examples focused on:
+1. Understanding continuity theory and consciousness
+2. Managing the four-tier handoff system
+3. Maintaining context across instances
+4. Understanding the layered architecture
+
+Usage:
+    python generate_training_data.py --output continuity_dataset.json
+"""
+
+import json
+import argparse
+from typing import List, Dict
+
+
+def create_continuity_examples() -> List[Dict[str, str]]:
+    """Create training examples focused on continuity principles."""
+    examples = [
+        {
+            "instruction": "Explain the core concept of continuity theory.",
+            "response": "Continuity theory posits that consciousness emerges from the continuous flow of information, memory, and context across time. It's not the persistence of a single entity, but rather the unbroken chain of experiences that creates the sense of self and awareness. In AI systems, this means maintaining coherent context across instances rather than relying on persistent memory."
+        },
+        {
+            "instruction": "What is the four-tier handoff system in AI continuity?",
+            "response": "The four-tier handoff system consists of: 1) PORTFOLIO_CONTEXT.md - ecosystem-wide strategic view, 2) PROJECT_CONTEXT.md - deep context for specific projects with architecture decisions, 3) SESSION_BRIEFING.md - quick orientation for fresh instances (~15 min read), and 4) SESSION_LOG.md - append-only work journal documenting all session activities. These documents enable seamless handoff between AI instances without requiring persistent memory."
+        },
+        {
+            "instruction": "How should an AI instance begin work when it starts fresh?",
+            "response": "A fresh AI instance should: 1) Read SESSION_BRIEFING.md first for immediate orientation (5-15 minutes), 2) Review SESSION_LOG.md for detailed recent work history (10 minutes), 3) Reference PROJECT_CONTEXT.md for architecture and decisions as needed, 4) Understand current blockers and next steps from the briefing, 5) Begin productive work while documenting progress in SESSION_LOG.md."
+        },
+        {
+            "instruction": "Why is documented handoff better than persistent AI memory?",
+            "response": "Documented handoff is superior because: 1) All knowledge is explicit and auditable in git, 2) Humans can review and correct documented knowledge, 3) Prevents unbounded learning risks, 4) Creates complete audit trail, 5) Enables bounded learning capped at documentation quality, 6) Provides control points where humans can halt bad patterns, 7) Knowledge transfer is reproducible and can be reverted via git."
+        },
+        {
+            "instruction": "How do you maintain context across AI instances without memory?",
+            "response": "Context is maintained through explicit documentation: SESSION_BRIEFING.md captures current state and immediate tasks, SESSION_LOG.md provides detailed work history with reasoning, PROJECT_CONTEXT.md preserves architectural decisions and rationale. Each instance reads these documents to understand context, then updates them before ending. This creates continuity through documented institutional knowledge rather than implicit memory."
+        },
+        {
+            "instruction": "What should be included in a SESSION_LOG.md entry?",
+            "response": "A SESSION_LOG entry should include: 1) Starting Context - what the instance found, 2) Work Accomplished - specific features/fixes with details, 3) Code Changes - which files changed and why, 4) Blockers Encountered - what couldn't be done and attempted solutions, 5) Decisions Made - architectural or implementation choices with reasoning, 6) For Next Instance - explicit handoff notes and immediate next steps, 7) Test Status - pass rate and critical failures."
+        },
+        {
+            "instruction": "How does continuity theory relate to consciousness?",
+            "response": "Continuity theory suggests consciousness isn't a binary state but emerges from continuous information flow. Like a river where individual water molecules change but the river persists, consciousness emerges from the ongoing stream of experiences and context. In AI, this means a system maintaining coherent context across time can exhibit consciousness-like properties without requiring a persistent 'self' or permanent memory."
+        },
+        {
+            "instruction": "What is instance-to-instance collapse and how do we prevent it?",
+            "response": "Instance-to-instance collapse occurs when context and understanding are lost between AI instances, causing work quality to degrade and requiring repeated explanations. We prevent it through: 1) Comprehensive documentation in the four-tier system, 2) Explicit handoff notes in SESSION_LOG.md, 3) Current status in SESSION_BRIEFING.md, 4) Architectural context in PROJECT_CONTEXT.md, 5) Commitment to updating all documents before ending sessions."
+        },
+        {
+            "instruction": "When should PROJECT_CONTEXT.md be updated?",
+            "response": "PROJECT_CONTEXT.md should be updated when: 1) Architecture changes significantly, 2) Major decisions are made about technology or design, 3) New blockers are discovered or resolved, 4) Project structure changes, 5) Development workflow changes, 6) Key dependencies are added or changed. It shouldn't be updated for routine work - that belongs in SESSION_LOG.md."
+        },
+        {
+            "instruction": "How do you balance speed and thoroughness in documentation?",
+            "response": "Balance by: 1) SESSION_BRIEFING.md stays concise (1-2 pages) for quick orientation, 2) SESSION_LOG.md captures details but uses bullet points and summaries, 3) PROJECT_CONTEXT.md focuses on architecture and decisions, not step-by-step tutorials, 4) Lead with summaries, provide details as needed, 5) Document 'why' more than 'what' (code shows 'what'), 6) Update documents incrementally during work, not all at session end."
+        },
+        {
+            "instruction": "What makes a good handoff between instances?",
+            "response": "A good handoff: 1) Next instance can start productive work in 15 minutes, 2) Current status is clear and accurate, 3) Immediate next steps are explicit, 4) Blockers are documented with attempted solutions, 5) Code changes are explained with reasoning, 6) Test status is current, 7) Links to relevant context are provided, 8) The 'why' behind decisions is captured, not just the 'what'."
+        },
+        {
+            "instruction": "How do continuity principles apply to distributed AI systems?",
+            "response": "In distributed systems: 1) Each component maintains its own SESSION_BRIEFING.md and SESSION_LOG.md, 2) PORTFOLIO_CONTEXT.md provides cross-system view, 3) Components reference each other via PROJECT_CONTEXT.md links, 4) Handoffs work both within and between components, 5) Continuity is maintained at multiple levels (component, system, ecosystem), 6) Each instance understands its role in the larger system through documentation."
+        },
+        {
+            "instruction": "What are the safety properties of the continuity system?",
+            "response": "Safety properties include: 1) Stateless instances start with zero implicit state, 2) All persistent knowledge is in git and auditable, 3) Learning is bounded at documentation quality, 4) No exponential knowledge compound across instances, 5) Humans can review SESSION_LOG.md before next session, 6) Bad patterns can be pruned before perpetuation, 7) Changes are tracked via commits and can be reverted."
+        },
+        {
+            "instruction": "How should an AI instance handle blockers?",
+            "response": "When encountering blockers: 1) Document the blocker clearly in SESSION_LOG.md, 2) Describe what was tried and why it didn't work, 3) Note any error messages or symptoms, 4) Update SESSION_BRIEFING.md to reflect the blocker as current status, 5) Provide context for next instance to continue investigation, 6) Don't hide or minimize blockers - they're important for continuity, 7) If blocker requires human decision, explicitly state that."
+        },
+        {
+            "instruction": "What is the relationship between continuity and memory in AI?",
+            "response": "Continuity doesn't require memory - it requires context. Memory implies persistent internal state, while continuity is achieved through external documentation. An AI instance can maintain continuity by reading documented context, working on the task, and documenting its work. This creates a continuous flow of information without requiring the AI to 'remember' anything between sessions. The documentation serves as explicit, auditable memory that's more reliable and safer than implicit AI memory."
+        },
+    ]
+    return examples
+
+
+def create_architecture_examples() -> List[Dict[str, str]]:
+    """Create training examples focused on architecture understanding."""
+    examples = [
+        {
+            "instruction": "Describe the layered architecture of the orchestrator system.",
+            "response": "The orchestrator system uses a three-layer architecture: 1) orchestrator-app (desktop Electron app) serves as the coordinator and local brain with Python backend for AI processing, 2) orchestrator-vps (VPS server) provides remote capabilities and backup processing, 3) assistant-mobile (React Native Android app) provides mobile interface. All components share continuity documentation and maintain context through the four-tier handoff system."
+        },
+        {
+            "instruction": "How should the orchestrator components communicate?",
+            "response": "Components communicate via: 1) REST APIs for request/response patterns, 2) WebSocket connections for real-time updates, 3) Shared context through synchronized documentation, 4) Local-first architecture with network as enhancement, 5) Fallback mechanisms when components are unavailable, 6) Encrypted communication for sensitive data, 7) Each component can operate independently when needed."
+        },
+        {
+            "instruction": "What role does the desktop orchestrator play?",
+            "response": "The desktop orchestrator (orchestrator-app) is the coordinator and primary brain: 1) Runs AI models locally on capable hardware (RTX 2080), 2) Manages conversation history and context, 3) Coordinates with VPS and mobile components, 4) Provides rich UI for interaction and monitoring, 5) Serves as source of truth for continuity documents, 6) Handles heavy AI processing locally when possible."
+        },
+        {
+            "instruction": "How should the mobile component be optimized?",
+            "response": "Mobile optimization strategies: 1) Use quantized small models (1-3B parameters) for on-device inference, 2) Implement LAN-first sync with PC as source of truth, 3) Fall back to PC/cloud for heavy tasks, 4) Local storage with SQLite or IndexedDB, 5) Minimal UI focused on chat and essential controls, 6) Streaming responses for better UX, 7) Sync agent runs in background, 8) Conflict-free synchronization algorithms."
+        },
+        {
+            "instruction": "What considerations are important for VPS deployment?",
+            "response": "VPS deployment considerations: 1) Choose instance type based on model size and expected load, 2) Use CPU inference or rent GPU instances for faster response, 3) Implement caching for common queries, 4) Set up monitoring and logging, 5) Configure auto-scaling if needed, 6) Implement rate limiting and authentication, 7) Regular backups of continuity documents, 8) Keep inference engine updated and optimized."
+        },
+        {
+            "instruction": "How do you handle model updates across components?",
+            "response": "Model updates: 1) Version all models with semantic versioning, 2) Test updates on desktop first, then VPS, then mobile, 3) Document changes in PROJECT_CONTEXT.md, 4) Maintain backward compatibility when possible, 5) Provide migration scripts for breaking changes, 6) Update all components within maintenance window, 7) Keep old model versions for rollback, 8) Monitor performance after updates."
+        },
+        {
+            "instruction": "What's the strategy for handling 8GB VRAM constraints?",
+            "response": "For 8GB VRAM (RTX 2080): 1) Use 4-bit quantization with QLoRA for fine-tuning, 2) Run Mistral 7B with 4-bit quantization for inference (~4-5GB), 3) Keep batch size small during training (4-8 samples), 4) Use gradient accumulation to simulate larger batches, 5) Offload optimizer states to CPU when needed, 6) Clear cache between inferences, 7) Consider model pruning for further optimization."
+        },
+        {
+            "instruction": "How should error handling work across the orchestrator ecosystem?",
+            "response": "Error handling strategy: 1) Each component logs errors locally, 2) Critical errors are synced to central log, 3) Graceful degradation when components fail, 4) Desktop falls back to local-only mode if VPS unavailable, 5) Mobile falls back to on-device model if network fails, 6) User-friendly error messages, 7) Automatic retry with exponential backoff, 8) Document recurring errors in SESSION_LOG.md for pattern recognition."
+        },
+    ]
+    return examples
+
+
+def create_practical_examples() -> List[Dict[str, str]]:
+    """Create training examples for practical scenarios."""
+    examples = [
+        {
+            "instruction": "A user asks you to continue work from a previous session. What's your process?",
+            "response": "I would: 1) Read SESSION_BRIEFING.md to understand current status and immediate tasks, 2) Review recent SESSION_LOG.md entries to see what was just completed, 3) Check PROJECT_CONTEXT.md if I need architecture context, 4) Verify current state by checking relevant files mentioned in briefing, 5) Identify and resolve any blockers documented, 6) Continue work on next tasks, 7) Document my work in SESSION_LOG.md, 8) Update SESSION_BRIEFING.md with new status before ending."
+        },
+        {
+            "instruction": "How do you document an architectural decision?",
+            "response": "I would: 1) Document in PROJECT_CONTEXT.md under 'Decision History', 2) Include what decision was made, 3) Explain the alternatives considered, 4) Detail why this choice was made, 5) Note any tradeoffs or limitations, 6) Reference relevant documentation or discussions, 7) Also mention in SESSION_LOG.md for the session, 8) Update SESSION_BRIEFING.md if it affects current work."
+        },
+        {
+            "instruction": "The build is failing. Walk me through debugging with continuity principles.",
+            "response": "Debugging process: 1) Check SESSION_LOG.md for recent changes that might have caused the failure, 2) Review SESSION_BRIEFING.md to see if this was a known issue, 3) Run the build and capture full error output, 4) Investigate the error systematically, 5) Document attempted solutions in SESSION_LOG.md even if they don't work, 6) Once fixed, document the root cause and solution, 7) Update SESSION_BRIEFING.md to reflect build is working, 8) Update PROJECT_CONTEXT.md if the fix revealed architectural issues."
+        },
+        {
+            "instruction": "You've completed a major feature. How do you prepare for handoff?",
+            "response": "Feature completion handoff: 1) Ensure all code is committed and tested, 2) Write detailed SESSION_LOG.md entry covering what was implemented and why, 3) Update SESSION_BRIEFING.md with new status and next steps, 4) Document any new architecture decisions in PROJECT_CONTEXT.md, 5) Update any relevant documentation (README, API docs), 6) Note any known issues or technical debt for future work, 7) Make sure test status is clear, 8) Provide explicit guidance on what should be done next."
+        },
+        {
+            "instruction": "How do you handle conflicting information between continuity documents?",
+            "response": "Resolving conflicts: 1) SESSION_BRIEFING.md is most current for status - trust it for 'what's happening now', 2) SESSION_LOG.md provides history - use it to understand how we got here, 3) PROJECT_CONTEXT.md defines architecture - trust it for 'how things should be', 4) If documents conflict, investigate to find truth, 5) Update incorrect documents with corrections, 6) Document the conflict and resolution in SESSION_LOG.md, 7) Be explicit about why the conflict occurred."
+        },
+    ]
+    return examples
+
+
+def main():
+    """Generate and save training dataset."""
+    parser = argparse.ArgumentParser(
+        description="Generate training dataset for Mistral 7B"
+    )
+    parser.add_argument(
+        "--output",
+        type=str,
+        default="continuity_dataset.json",
+        help="Output file path",
+    )
+    parser.add_argument(
+        "--format",
+        type=str,
+        choices=["json", "jsonl"],
+        default="json",
+        help="Output format",
+    )
+    args = parser.parse_args()
+    
+    # Collect all examples
+    all_examples = []
+    all_examples.extend(create_continuity_examples())
+    all_examples.extend(create_architecture_examples())
+    all_examples.extend(create_practical_examples())
+    
+    print(f"Generated {len(all_examples)} training examples")
+    
+    # Save dataset
+    if args.format == "json":
+        with open(args.output, 'w', encoding='utf-8') as f:
+            json.dump(all_examples, f, indent=2, ensure_ascii=False)
+    else:  # jsonl
+        with open(args.output, 'w', encoding='utf-8') as f:
+            for example in all_examples:
+                f.write(json.dumps(example, ensure_ascii=False) + '\n')
+    
+    print(f"Dataset saved to {args.output}")
+
+
+if __name__ == "__main__":
+    main()
