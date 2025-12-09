@@ -65,7 +65,7 @@ WorkingDirectory=$(pwd)
 Environment="MODEL_PATH=$MODEL_PATH"
 Environment="USE_GPU=$USE_GPU"
 Environment="QUANTIZE=$QUANTIZE"
-ExecStart=$(pwd)/venv/bin/gunicorn -w $WORKERS -b 0.0.0.0:$PORT orchestrator_api:app
+ExecStart=$(pwd)/venv/bin/gunicorn -w $WORKERS -b 127.0.0.1:$PORT orchestrator_api:app
 Restart=always
 RestartSec=10
 

@@ -55,7 +55,14 @@ def parse_args():
 
 
 def check_llama_cpp(llama_cpp_path):
-    """Check if llama.cpp is available."""
+    """Check if llama.cpp is available.
+    
+    Returns:
+        tuple: (convert_script_path, quantize_binary_path) on success
+        
+    Raises:
+        RuntimeError: If llama.cpp is not properly set up
+    """
     convert_script = os.path.join(llama_cpp_path, "convert.py")
     quantize_binary = os.path.join(llama_cpp_path, "quantize")
     
@@ -65,9 +72,9 @@ def check_llama_cpp(llama_cpp_path):
         print("  git clone https://github.com/ggerganov/llama.cpp")
         print("  cd llama.cpp")
         print("  make")
-        return False
+        raise RuntimeError("llama.cpp not found or not properly set up")
     
-    return True, convert_script, quantize_binary
+    return convert_script, quantize_binary
 
 
 def convert_to_gguf(model_path, output_path, convert_script):
@@ -133,11 +140,11 @@ def main():
     args = parse_args()
     
     # Check llama.cpp
-    result = check_llama_cpp(args.llama_cpp_path)
-    if result is False:
+    try:
+        convert_script, quantize_binary = check_llama_cpp(args.llama_cpp_path)
+    except RuntimeError as e:
+        print(f"Error: {e}")
         sys.exit(1)
-    
-    _, convert_script, quantize_binary = result
     
     # Convert to GGUF
     gguf_path = convert_to_gguf(

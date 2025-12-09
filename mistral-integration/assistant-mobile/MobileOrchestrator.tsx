@@ -137,12 +137,17 @@ You maintain context across instances and understand the orchestrator ecosystem.
     if (!config.desktopApiUrl) return null;
 
     try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000);
+
       const response = await fetch(`${config.desktopApiUrl}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: userMessage }),
-        timeout: 5000,
+        signal: controller.signal,
       });
+
+      clearTimeout(timeoutId);
 
       if (!response.ok) return null;
 
@@ -158,14 +163,19 @@ You maintain context across instances and understand the orchestrator ecosystem.
     if (!config.vpsApiUrl) return null;
 
     try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000);
+
       const prompt = formatPrompt(userMessage);
       
       const response = await fetch(`${config.vpsApiUrl}/generate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt }),
-        timeout: 10000,
+        signal: controller.signal,
       });
+
+      clearTimeout(timeoutId);
 
       if (!response.ok) return null;
 

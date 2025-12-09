@@ -20,7 +20,6 @@ from transformers import (
     AutoTokenizer,
     BitsAndBytesConfig,
     TrainingArguments,
-    Trainer,
 )
 from peft import (
     LoraConfig,

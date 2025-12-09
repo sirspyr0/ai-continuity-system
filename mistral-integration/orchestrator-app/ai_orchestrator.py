@@ -96,12 +96,16 @@ class MistralOrchestrator:
         """
         Format prompt with conversation history and continuity context.
         
+        Uses Mistral instruction format: <s>[INST] {system_prompt}\n\n{message} [/INST] {response}</s>
+        Includes up to max_history_turns of conversation history to maintain context
+        while preventing token overflow.
+        
         Args:
             user_message: Current user message
             system_context: Additional system context (from SESSION_BRIEFING, etc.)
             
         Returns:
-            Formatted prompt string
+            Formatted prompt string in Mistral instruction format
         """
         # Base system prompt
         system_prompt = """You are an AI assistant trained in continuity theory and consciousness principles.
