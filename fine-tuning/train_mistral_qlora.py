@@ -147,6 +147,8 @@ def load_model_and_tokenizer(model_name, bnb_config):
         quantization_config=bnb_config,
         device_map="auto",
         trust_remote_code=True,
+        low_cpu_mem_usage=True,
+        dtype=torch.float16,
     )
     
     tokenizer = AutoTokenizer.from_pretrained(
@@ -235,8 +237,7 @@ def main():
         model=model,
         args=training_args,
         train_dataset=dataset,
-        tokenizer=tokenizer,
-        max_seq_length=args.max_seq_length,
+        processing_class=tokenizer,
         formatting_func=format_instruction,
         packing=False,
     )
