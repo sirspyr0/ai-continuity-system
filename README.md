@@ -97,10 +97,35 @@ This repository contains:
 
 ---
 
+## Working Proof-of-Concept: Echo
+
+**TL;DR**: [**Echo**](https://github.com/sirspyr0/echo) is a working Electron chatbot that demonstrates the core thesis of this research.
+
+While the full Orchestrator System (desktop + VPS + mobile) remains under development, **Echo** proves that continuity-based personality formation works in practice:
+
+- **Relationship Log**: Tracks patterns, opinions, decisions → builds understanding of how you think
+- **Oracle RAG**: Semantic retrieval (SQLite + similarity index) → injects relevant context into every inference
+- **Personalized Prompts**: System messages shaped by accumulated insights → responses reflect learned preferences
+- **Knowledge Base**: Persistent facts → continuous learning from conversations
+
+**Result**: Personality emerges from architecture (continuity substrate), not from model memory or parameter fine-tuning.
+
+**Key Insight**: Echo demonstrates that you don't need persistent memory to develop relationship and personality. You need:
+1. Structured context accumulation (relationship log)
+2. Semantic retrieval (oracle finds relevant context)
+3. Injection into each inference (personalized system prompts)
+
+Echo is a focused implementation (desktop chatbot) while this repository describes a research platform (distributed orchestrator). Both share the continuity principle: **personality comes from structure and context, not from training data or memory.**
+
+👉 **Try it**: [github.com/sirspyr0/echo](https://github.com/sirspyr0/echo)
+
+---
+
 ## Current Status (December 2025)
 
 ✅ **Complete**:
 - Continuity theory articulated and published (LessWrong, preparing HN)
+- **Echo proof-of-concept: continuity-based personality working in production** ⭐
 - System architecture designed
 - Desktop orchestrator prototype (mostly working)
 - VPS skeleton (API defined, database schema ready)
